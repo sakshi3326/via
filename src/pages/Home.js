@@ -295,7 +295,7 @@ const Home = () => {
             <h3>Mr. Kunal Mishra</h3>
             <p>Founder & CEO, Vyapar India Association</p>
           </div>
-          <div style={styles.teamCard}>
+          {/* <div style={styles.teamCard}>
             <img
               style={styles.teamImage}
               src="https://firebasestorage.googleapis.com/v0/b/gosharpenertestapp.appspot.com/o/priya.jpg?alt=media&token=f1043605-5aab-40bb-9b87-e94bb0abc2b4"
@@ -303,7 +303,7 @@ const Home = () => {
             />
             <h3>Miss Priya Pandey</h3>
             <p>Investor, Vyapar India Association</p>
-          </div>
+          </div> */}
           <div style={styles.teamCard}>
             <img
               style={styles.teamImage}
