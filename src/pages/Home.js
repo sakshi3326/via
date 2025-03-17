@@ -227,7 +227,7 @@ const Home = () => {
 
         {/* Text Content */}
         <div style={{ position: "relative", zIndex: 1 }}>
-          <h1 style={styles.heroTitle}>Invest Rural - U.P</h1>
+          <h1 style={styles.heroTitle}>Uttar Pradesh Industrial Sangam</h1>
           <p style={styles.heroSubtitle}>
             Connecting Technology & Creating Business Opportunity
           </p>

@@ -1,0 +1,38 @@
+[
+    {
+      "district": "Agra",
+      "businesses": [
+        {
+          "name": "Leather Shoe Co.",
+          "image": "https://example.com/leather-shoe-co.jpg",
+          "desc": "Specializes in high-quality leather shoes."
+        },
+        {
+          "name": "Agra Footwear",
+          "image": "https://example.com/agra-footwear.jpg",
+          "desc": "Manufacturer of traditional and modern footwear."
+        }
+      ]
+    },
+    {
+      "district": "Aligarh",
+      "businesses": [
+        {
+          "name": "Aligarh Locksmiths",
+          "image": "https://example.com/aligarh-locksmiths.jpg",
+          "desc": "Leading manufacturer of durable locks."
+        }
+      ]
+    },
+    {
+      "district": "Prayagraj",
+      "businesses": [
+        {
+          "name": "Guava Farms",
+          "image": "https://example.com/guava-farms.jpg",
+          "desc": "Produces the finest guavas in the region."
+        }
+      ]
+    }
+    
+  ]

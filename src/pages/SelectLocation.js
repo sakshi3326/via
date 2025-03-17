@@ -21,6 +21,8 @@ const SelectLocation = () => {
   const [filter, setFilter] = useState("All");
   const [productMatchedDistricts, setProductMatchedDistricts] = useState([]);
   const [showListModal, setShowListModal] = useState(false);
+  const [selectedBusiness, setSelectedBusiness] = useState(null);
+
 
   useEffect(() => {
     if (formData?.product) {
@@ -225,19 +227,24 @@ const SelectLocation = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
-            {filteredDistricts.map((district, idx) => (
-              <Marker
-                key={idx}
-                position={district.coords}
-                eventHandlers={{ click: () => setSelectedDistrict(district) }}
-              />
-            ))}
-
+{filteredDistricts.map((district, idx) => (
+  <Marker
+    key={idx}
+    position={district.coords}
+    eventHandlers={{
+      click: () => {
+        setSelectedDistrict(district); // Update selected district
+        // setShowListModal(true); 
+      },
+    }}
+  />
+))}
             {selectedDistrict && (
               <Popup
                 position={selectedDistrict.coords}
                 onClose={() => setSelectedDistrict(null)}
               >
+                {/*select this district button */}
                 <div>
                   <h3>{selectedDistrict.name}</h3>
                   <p>
@@ -246,6 +253,24 @@ const SelectLocation = () => {
                   <p>
                     <strong>Type:</strong> {selectedDistrict.type}
                   </p>
+                  {/* Display the product image */}
+                  <div style={{ margin: "20px 0" }}>
+                    <img
+                      src={selectedDistrict.image}
+                      alt={selectedDistrict.product}
+                      style={{
+                        width: "100%",
+                        maxWidth: "300px",
+                        borderRadius: "10px",
+                      }}
+                    />
+                  </div>
+                  {/* Display the description */}
+                  <p>
+                    <strong>How it works:</strong>{" "}
+                    {selectedDistrict.description}
+                  </p>
+                  {/* Select This District button */}
                   <button
                     style={{
                       padding: "8px 14px",
@@ -284,40 +309,44 @@ const SelectLocation = () => {
 
       {/* Elegant Modal Popup */}
       {showListModal && (
-        <div style={styles.modalOverlay}>
-          <div style={styles.modal}>
-            <button
-              style={styles.closeBtn}
-              onClick={() => setShowListModal(false)}
-            >
-              &times;
-            </button>
-            <h2 style={{ color: "#4B830D", marginBottom: "20px" }}>
-              Connect with Businesses
-            </h2>
+  <div style={styles.modalOverlay}>
+    <div style={styles.modal}>
+      <button
+        style={styles.closeBtn}
+        onClick={() => setShowListModal(false)}
+      >
+        &times;
+      </button>
+      <h2 style={{ color: "#4B830D", marginBottom: "20px" }}>
+        Connect with Businesses in {selectedDistrict.name}
+      </h2>
 
-            {dummyConnections.map((item, idx) => (
-              <div key={idx} style={styles.row}>
-                <div style={styles.rowLeft}>
-                  <img src={item.image} alt="dp" style={styles.dp} />
-                  <div>
-                    <div style={styles.name}>
-                      {item.name} <span title="Verified">✅</span>
-                    </div>
-                    <div style={styles.description}>{item.desc}</div>
-                  </div>
-                </div>
-                <button
-                  style={styles.connectBtn}
-                  onClick={() => setShowConfirmPopup(true)}
-                >
-                  Connect
-                </button>
+      {selectedDistrict.businesses?.map((item, idx) => (
+        <div key={idx} style={styles.row}>
+          <div style={styles.rowLeft}>
+            <img src={item.image} alt="dp" style={styles.dp} />
+            <div>
+              <div style={styles.name}>
+                {item.name} <span title="Verified">✅</span>
               </div>
-            ))}
+              <div style={styles.description}>{item.desc}</div>
+            </div>
           </div>
+          <button
+  style={styles.connectBtn}
+  onClick={() => {
+    setSelectedBusiness(item);
+    setShowConfirmPopup(true);
+  }}
+>
+  Connect
+</button>
+
         </div>
-      )}
+      ))}
+    </div>
+  </div>
+)}
 
       {/* Confirm Message Popup */}
       {showConfirmPopup && (
@@ -333,8 +362,10 @@ const SelectLocation = () => {
             </button>
             <h3 style={{ color: "#4B830D" }}>✅ Message Sent</h3>
             <p style={{ marginTop: "15px", fontSize: "1.1rem" }}>
-              Details have been sent to your registered email 📩
-            </p>
+  {selectedBusiness?.desc}<br />
+  Details have been sent to your registered email 📩
+</p>
+
             <button
               style={{ ...styles.connectBtn, marginTop: "20px" }}
               onClick={() => setShowConfirmPopup(false)}
