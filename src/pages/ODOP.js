@@ -39,6 +39,39 @@ const ODOP = () => {
   ];
 
   const styles = {
+    videoSection: {
+      backgroundColor: "#fff",
+      padding: "60px 20px",
+      borderRadius: "15px",
+      boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
+      marginBottom: "60px",
+      textAlign: "center",
+    },
+    videoTitle: {
+      fontSize: "2.2rem",
+      color: "#4B830D",
+      marginBottom: "20px",
+      fontWeight: "700",
+      letterSpacing: "1px",
+    },
+    videoDescription: {
+      fontSize: "1.1rem",
+      color: "#666",
+      marginBottom: "40px",
+      lineHeight: "1.8",
+    },
+    videoContainer: {
+      maxWidth: "800px",
+      margin: "0 auto",
+      borderRadius: "15px",
+      overflow: "hidden",
+      boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
+    },
+    video: {
+      width: "100%",
+      height: "auto",
+      display: "block",
+    },
     container: {
       fontFamily: "'Poppins', sans-serif",
       backgroundColor: "#F4F1EE",
@@ -415,7 +448,30 @@ const ODOP = () => {
           style={styles.logo}
         />
       </div>
-
+ {/*video*/}
+ <div style={styles.videoSection}>
+  <h2 style={styles.videoTitle}>Explore Our Network</h2>
+  <p style={styles.videoDescription}>
+    Watch how our platform connects buyers and sellers across diverse categories.
+  </p>
+  <div style={styles.videoContainer}>
+    <video
+      autoPlay
+      muted
+      playsInline
+      loop
+      controls // Add controls for debugging
+      style={styles.video}
+      poster="https://onde.org/assets/theme/images/video_img.jpg"
+    >
+      <source
+        src="https://ondc.org/assets/theme/video/video-desktop1.mp4"
+        type="video/mp4"
+      />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
       {/* MSME Section */}
       <div style={styles.section}>
         <h2 style={styles.sectionTitle}>
@@ -485,6 +541,7 @@ const ODOP = () => {
         </p>
       </div>
 
+     
       {/* Highlights Section */}
       <div style={styles.section}>
         <h2 style={styles.sectionTitle}>ODOP Highlights</h2>
