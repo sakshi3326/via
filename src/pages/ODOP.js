@@ -5,6 +5,39 @@ const ODOP = () => {
   const [showForm, setShowForm] = useState(false);
   const navigate = useNavigate();
 
+  const sectorss = [
+    {
+      title: "Food Processing",
+      description: "Explore manufacturers in the food processing sector.",
+      image: "https://example.com/food-processing.jpg",
+    },
+    {
+      title: "Agriculture",
+      description: "Connect with agricultural product manufacturers.",
+      image: "https://example.com/agriculture.jpg",
+    },
+    {
+      title: "Renewable Energy",
+      description: "Find manufacturers in the renewable energy sector.",
+      image: "https://example.com/renewable-energy.jpg",
+    },
+    {
+      title: "Pharma",
+      description: "Access pharmaceutical manufacturers across India.",
+      image: "https://example.com/pharma.jpg",
+    },
+    {
+      title: "Handicraft",
+      description: "Discover unique handicraft manufacturers.",
+      image: "https://example.com/handicraft.jpg",
+    },
+    {
+      title: "Textile & Garment",
+      description: "Connect with textile and garment manufacturers.",
+      image: "https://example.com/textile-garment.jpg",
+    },
+  ];
+
   const styles = {
     container: {
       fontFamily: "'Poppins', sans-serif",
@@ -158,6 +191,157 @@ const ODOP = () => {
       color: "#333",
       cursor: "pointer",
     },
+    networkSection: {
+      backgroundColor: "#fff",
+      padding: "60px 20px",
+      borderRadius: "15px",
+      boxShadow: "0 8px 24px rgba(0, 0, 0, 0.1)",
+      marginBottom: "60px",
+    },
+    networkTitle: {
+      fontSize: "2.2rem",
+      color: "#4B830D",
+      marginBottom: "20px",
+      fontWeight: "700",
+      textAlign: "center",
+      letterSpacing: "1px",
+    },
+    networkDescription: {
+      fontSize: "1.1rem",
+      color: "#666",
+      textAlign: "center",
+      marginBottom: "40px",
+      lineHeight: "1.8",
+    },
+    networkGrid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+      gap: "30px",
+      maxWidth: "1000px",
+      margin: "0 auto",
+    },
+    networkCard: {
+      backgroundColor: "#F9F9F9",
+      padding: "30px",
+      borderRadius: "12px",
+      textAlign: "left",
+      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      ":hover": {
+        transform: "translateY(-5px)",
+        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
+      },
+    },
+    networkCardTitle: {
+      fontSize: "1.4rem",
+      color: "#4B830D",
+      marginBottom: "20px",
+      fontWeight: "600",
+      display: "flex",
+      alignItems: "center",
+      gap: "10px",
+    },
+    icon: {
+      fontSize: "1.6rem",
+    },
+    networkCardList: {
+      listStyle: "none",
+      padding: "0",
+      margin: "0",
+    },
+    networkCardItem: {
+      fontSize: "1rem",
+      color: "#555",
+      marginBottom: "12px",
+      display: "flex",
+      alignItems: "center",
+      gap: "8px",
+    },
+    bullet: {
+      color: "#4B830D",
+      fontWeight: "bold",
+    },
+    joinSection: {
+      backgroundColor: "#F4F1EE",
+      padding: "40px 20px",
+      borderRadius: "10px",
+      boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
+      marginBottom: "40px",
+    },
+    joinTitle: {
+      fontSize: "1.8rem",
+      color: "#4B830D",
+      marginBottom: "20px",
+      fontWeight: "700",
+      textAlign: "center",
+    },
+    stepsContainer: {
+      display: "flex",
+      justifyContent: "space-between",
+      gap: "20px",
+      marginBottom: "40px",
+    },
+    stepCard: {
+      backgroundColor: "#fff",
+      padding: "20px",
+      borderRadius: "10px",
+      textAlign: "center",
+      boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+      flex: 1,
+    },
+    stepNumber: {
+      fontSize: "1.5rem",
+      color: "#4B830D",
+      fontWeight: "700",
+      marginBottom: "10px",
+    },
+    stepTitle: {
+      fontSize: "1.2rem",
+      color: "#4B830D",
+      marginBottom: "10px",
+    },
+    stepDescription: {
+      fontSize: "1rem",
+      color: "#444",
+    },
+    networkVisualization: {
+      backgroundColor: "#fff",
+      padding: "20px",
+      borderRadius: "10px",
+      boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+      textAlign: "center",
+    },
+    visualizationTitle: {
+      fontSize: "1.2rem",
+      color: "#4B830D",
+      marginBottom: "20px",
+    },
+    visualizationGrid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+      gap: "20px",
+    },
+    visualizationCard: {
+      backgroundColor: "#F4F1EE",
+      padding: "20px",
+      borderRadius: "10px",
+      textAlign: "center",
+    },
+    visualizationCardTitle: {
+      fontSize: "1.1rem",
+      color: "#4B830D",
+      marginBottom: "10px",
+    },
+    visualizationCardList: {
+      listStyle: "none",
+      padding: "0",
+      margin: "0",
+    },
+    visualizationCardItem: {
+      fontSize: "1rem",
+      color: "#444",
+      marginBottom: "8px",
+    },
   };
 
   const highlights = [
@@ -198,6 +382,15 @@ const ODOP = () => {
       image:
         "https://firebasestorage.googleapis.com/v0/b/gosharpenertestapp.appspot.com/o/textile.webp?alt=media&token=8215c158-77d9-4d21-afa7-e23b9a2e6106",
     },
+    {
+      title: "Renewable Energy",
+      description: "Find manufacturers in the renewable energy sector.",
+      image:"https://firebasestorage.googleapis.com/v0/b/gosharpenertestapp.appspot.com/o/renew.webp?alt=media&token=3172d517-3763-4249-afd1-9a5a7e60e35b",    },
+    {
+      title: "Pharma",
+      description: "Access pharmaceutical manufacturers across India.",
+      image:
+"https://firebasestorage.googleapis.com/v0/b/gosharpenertestapp.appspot.com/o/pharma.webp?alt=media&token=dfd8cd13-e9bb-44ef-9d24-8273463bcaff",    },
   ];
 
   const handleSubmit = (e) => {
@@ -304,6 +497,125 @@ const ODOP = () => {
         </div>
       </div>
 
+       {/* How to Join VIA EKART Section */}
+       <div style={styles.joinSection}>
+        <h2 style={styles.joinTitle}>How to Join VIA EKART</h2>
+
+        {/* Steps Container */}
+        <div style={styles.stepsContainer}>
+          {/* Step 1 */}
+          <div style={styles.stepCard}>
+            <div style={styles.imageContainer}>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/gosharpenertestapp.appspot.com/o/register.webp?alt=media&token=ab4e156a-766b-420e-a354-e8308a2cd995"
+                alt="Step 1"
+                style={styles.image}
+              />
+            </div>
+            <div style={styles.stepNumber}>Step 1</div>
+            <h3 style={styles.stepTitle}>Register as a Buyer or Seller</h3>
+            <p style={styles.stepDescription}>
+              Sign up on the platform as a buyer or seller to get started.
+            </p>
+          </div>
+
+          {/* Step 2 */}
+          <div style={styles.stepCard}>
+          <div style={styles.imageContainer}>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/gosharpenertestapp.appspot.com/o/model.webp?alt=media&token=c20c914f-b4df-4a61-a120-c6c2d2ea707d"
+                alt="Step 1"
+                style={styles.image}
+              />
+            </div>
+            <div style={styles.stepNumber}>Step 2</div>
+            <h3 style={styles.stepTitle}>Select Business Category</h3>
+            <p style={styles.stepDescription}>
+              Choose your business model: B2B, B2C, or D2C.
+            </p>
+          </div>
+
+          {/* Step 3 */}
+          <div style={styles.stepCard}>
+          <div style={styles.imageContainer}>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/gosharpenertestapp.appspot.com/o/OPE.webp?alt=media&token=d7f800f7-9822-4c4b-98af-d7ac1a1fe08d"
+                alt="Step 1"
+                style={styles.image}
+              />
+            </div>
+            <div style={styles.stepNumber}>Step 3</div>
+            <h3 style={styles.stepTitle}>Open Network Empowerment</h3>
+            <p style={styles.stepDescription}>
+              Connect with buyers and sellers, and leverage logistics partners
+              for seamless delivery.
+            </p>
+          </div>
+        </div>
+
+        {/* Network Visualization */}
+      </div>
+      {/* ODOP Manufacturers Network Section */}
+      <div style={styles.networkSection}>
+        <h2 style={styles.networkTitle}>ODOP Manufacturers Network</h2>
+        <p style={styles.networkDescription}>
+          An open network database of ODOP manufacturers from UP, accessible
+          pan-India. Connect buyers and sellers across diverse categories.
+        </p>
+        <div style={styles.networkGrid}>
+          {/* Buyers Section */}
+          <div style={styles.networkCard}>
+            <h3 style={styles.networkCardTitle}>
+              <span style={styles.icon}>🛒</span> Buyers
+            </h3>
+            <ul style={styles.networkCardList}>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Retailers
+              </li>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Distributors
+              </li>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> CNF
+              </li>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Super Stockists
+              </li>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Exporters
+              </li>
+            </ul>
+          </div>
+
+          {/* Sellers Section */}
+          <div style={styles.networkCard}>
+            <h3 style={styles.networkCardTitle}>
+              <span style={styles.icon}>🏭</span> Sellers
+            </h3>
+            <ul style={styles.networkCardList}>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Food Processing
+              </li>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Agriculture
+              </li>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Renewable Energy
+              </li>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Pharma
+              </li>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Handicraft
+              </li>
+              <li style={styles.networkCardItem}>
+                <span style={styles.bullet}>•</span> Textile & Garment
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* Sectors Section */}
       <div style={styles.section}>
         <h2 style={styles.sectionTitle}>Sectors Covered Under ODOP</h2>
@@ -332,9 +644,15 @@ const ODOP = () => {
         </div>
       </div>
 
+      
+
+     
+
       {/* How Buyers Can Join Sellers Section */}
       <div style={styles.section}>
-        <h2 style={styles.sectionTitle}>How Buyers Can Join Sellers Directly</h2>
+        <h2 style={styles.sectionTitle}>
+          How Buyers Can Join Sellers Directly
+        </h2>
         <div style={styles.cards}>
           {/* Step 1 */}
           <div style={styles.card}>
@@ -352,9 +670,9 @@ const ODOP = () => {
                 marginBottom: "10px",
               }}
             >
-              Step 1: Register as a Buyer with your Product Name by clicking "Get involved" in the below section
+              Step 1: Register as a Buyer with your Product Name by clicking
+              "Get involved" in the below section
             </h3>
-            
           </div>
 
           {/* Step 2 */}
@@ -375,7 +693,6 @@ const ODOP = () => {
             >
               Step 2: Explore cities in the Map and Choose the Desired One
             </h3>
-            
           </div>
 
           {/* Step 3 */}
@@ -396,7 +713,6 @@ const ODOP = () => {
             >
               Step 3: Get the list of Sellers
             </h3>
-            
           </div>
 
           {/* Step 4 */}
@@ -417,7 +733,6 @@ const ODOP = () => {
             >
               Step 4: Get Details of Seller
             </h3>
-            
           </div>
 
           {/* Step 5 */}
@@ -438,7 +753,6 @@ const ODOP = () => {
             >
               Step 5: Send Request
             </h3>
-            
           </div>
         </div>
       </div>
@@ -471,7 +785,7 @@ const ODOP = () => {
               <input
                 style={styles.input}
                 type="text"
-                placeholder="Your Name"
+                placeholder="Buyer Name"
                 required
               />
               <input
@@ -495,11 +809,11 @@ const ODOP = () => {
               <input
                 style={styles.input}
                 type="text"
-                placeholder="Product You Want to Sell"
+                placeholder="Product You Want to Purchase"
                 required
               />
               <button style={styles.submitBtn} type="submit">
-                Submit
+                Search Seller
               </button>
             </form>
           </div>
