@@ -14,11 +14,11 @@ ChartJS.register(ArcElement, Tooltip, Legend, Title);
 const Explore = () => {
   // Data for the pie chart
   const data = {
-    labels: ['Agriculture', 'Food Processing', 'Handicraft', 'Textile', 'Mining'],
+    labels: ['Ayush and Wellness', 'Water', 'Renewable', 'Pharma', 'Smart Tech', 'ODOP', 'Mid Tech', 'Smart Cold chain', 'Waste Management'],
     datasets: [
       {
         label: 'Number of Companies',
-        data: [35, 20, 15, 25, 5], // Numerical data for each industry
+        data: [102, 474, 934, 669, 695, 4500, 308, 1000, 620], // Numerical data for each industry
         backgroundColor: [
           '#4B830D', // Agriculture
           '#D98E04', // Food Processing
@@ -57,8 +57,7 @@ const Explore = () => {
 
   return (
     <div style={{ textAlign: 'center', padding: '40px 20px', maxWidth: '600px', margin: 'auto' }}>
-      <h1>Explore Page</h1>
-      <p>Welcome to the Explore page! Here you can find more details about the focus sectors.</p>
+      
 
       {/* Pie Chart */}
       <div style={{ marginTop: '40px' }}>

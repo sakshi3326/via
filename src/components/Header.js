@@ -36,7 +36,7 @@ const Header = () => {
 
   return (
     <nav style={styles.navbar}>
-      <div style={styles.logo}>UP Industrial Sangam</div>
+      <div style={styles.logo}>उत्तर प्रदेश औद्योगिक संगम</div>
       <div style={styles.navLinks}>
         <Link to="/" style={styles.link}>Home</Link>
         <Link to="/about" style={styles.link}>About</Link>

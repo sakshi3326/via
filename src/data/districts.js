@@ -8,14 +8,69 @@ const districts = [
     description: "Agra is renowned for its high-quality leather shoes, crafted by skilled artisans using traditional methods.",
     businesses: [
       {
-        name: "Leather Craft Co.",
+        name: "Asian Leather Private Limited",
         image: "https://randomuser.me/api/portraits/men/10.jpg",
-        desc: "Specializes in handmade leather shoes.",
+        desc: "mail@asianleather.com",
+        phone: "8756749280",
+        rate: "INR 45000",
+        video: "to be uploaded"
+
       },
       {
-        name: "Agra Footwear",
+        name: "Ahmed tanmay Pvt. Ltd.",
         image: "https://randomuser.me/api/portraits/men/11.jpg",
-        desc: "Exporter of premium leather footwear.",
+        desc: "atcalcutta@vsnl.net",
+        phone: "7658905435",
+        rate: "INR 45000",
+        video: "to be uploaded"
+      },
+      {
+        name: "Acme Leathercraft",
+        image: "https://randomuser.me/api/portraits/men/11.jpg",
+        desc: "info@water-lily.com",
+        phone: "8756749980",
+        rate: "INR 45000",
+        video: "to be uploaded"
+      },
+      {
+        name: "Balaji Leather Creation",
+        image: "https://randomuser.me/api/portraits/men/11.jpg",
+        desc: "amitabh.blc@gmail.com",
+        phone: "9254675213",
+        rate: "INR 45000",
+        video: "to be uploaded"
+      },
+      {
+        name: "BG Service",
+        image: "https://randomuser.me/api/portraits/men/11.jpg",
+        desc: "bgservices.india@gmail.com",
+        phone: "7454756487",
+        rate: "INR 45000",
+        video: "to be uploaded"
+      },
+      {
+        name: "Ciria Tanning Company Pvt.Ltd",
+        image: "https://randomuser.me/api/portraits/men/11.jpg",
+        desc: "classictanneryco.vsnl.net",
+        phone: "6556543490",
+        rate: "INR 45000",
+        video: "to be uploaded"
+      },
+      {
+        name: "Dream WeaverPvt. Ltd",
+        image: "https://randomuser.me/api/portraits/men/11.jpg",
+        desc: "dreamweaver.rsan@yahoo.com",
+        phone: "8756749280",
+        rate: "INR 45000",
+        video: "to be uploaded"
+      },
+      {
+        name: "Das Style Pvt.Ltd",
+        image: "https://randomuser.me/api/portraits/men/11.jpg",
+        desc: "office@dasstylev.com",
+        phone: "8756749280",
+        rate: "INR 45000",
+        video: "to be uploaded"
       },
     ],
   },

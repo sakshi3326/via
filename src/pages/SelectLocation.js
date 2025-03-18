@@ -23,7 +23,6 @@ const SelectLocation = () => {
   const [showListModal, setShowListModal] = useState(false);
   const [selectedBusiness, setSelectedBusiness] = useState(null);
 
-
   useEffect(() => {
     if (formData?.product) {
       const matched = districts.filter((d) =>
@@ -227,18 +226,18 @@ const SelectLocation = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
-{filteredDistricts.map((district, idx) => (
-  <Marker
-    key={idx}
-    position={district.coords}
-    eventHandlers={{
-      click: () => {
-        setSelectedDistrict(district); // Update selected district
-        // setShowListModal(true); 
-      },
-    }}
-  />
-))}
+            {filteredDistricts.map((district, idx) => (
+              <Marker
+                key={idx}
+                position={district.coords}
+                eventHandlers={{
+                  click: () => {
+                    setSelectedDistrict(district); // Update selected district
+                    // setShowListModal(true);
+                  },
+                }}
+              />
+            ))}
             {selectedDistrict && (
               <Popup
                 position={selectedDistrict.coords}
@@ -309,44 +308,43 @@ const SelectLocation = () => {
 
       {/* Elegant Modal Popup */}
       {showListModal && (
-  <div style={styles.modalOverlay}>
-    <div style={styles.modal}>
-      <button
-        style={styles.closeBtn}
-        onClick={() => setShowListModal(false)}
-      >
-        &times;
-      </button>
-      <h2 style={{ color: "#4B830D", marginBottom: "20px" }}>
-        Connect with Businesses in {selectedDistrict.name}
-      </h2>
+        <div style={styles.modalOverlay}>
+          <div style={styles.modal}>
+            <button
+              style={styles.closeBtn}
+              onClick={() => setShowListModal(false)}
+            >
+              &times;
+            </button>
+            <h2 style={{ color: "#4B830D", marginBottom: "20px" }}>
+              Connect with Businesses in {selectedDistrict.name}
+            </h2>
 
-      {selectedDistrict.businesses?.map((item, idx) => (
-        <div key={idx} style={styles.row}>
-          <div style={styles.rowLeft}>
-            <img src={item.image} alt="dp" style={styles.dp} />
-            <div>
-              <div style={styles.name}>
-                {item.name} <span title="Verified">✅</span>
+            {selectedDistrict.businesses?.map((item, idx) => (
+              <div key={idx} style={styles.row}>
+                <div style={styles.rowLeft}>
+                  <img src={item.image} alt="dp" style={styles.dp} />
+                  <div>
+                    <div style={styles.name}>
+                      {item.name} <span title="Verified">✅</span>
+                    </div>
+                    {/* <div style={styles.description}>{item.desc}</div> */}
+                  </div>
+                </div>
+                <button
+                  style={styles.connectBtn}
+                  onClick={() => {
+                    setSelectedBusiness(item);
+                    setShowConfirmPopup(true);
+                  }}
+                >
+                  Get Details
+                </button>
               </div>
-              <div style={styles.description}>{item.desc}</div>
-            </div>
+            ))}
           </div>
-          <button
-  style={styles.connectBtn}
-  onClick={() => {
-    setSelectedBusiness(item);
-    setShowConfirmPopup(true);
-  }}
->
-  Connect
-</button>
-
         </div>
-      ))}
-    </div>
-  </div>
-)}
+      )}
 
       {/* Confirm Message Popup */}
       {showConfirmPopup && (
@@ -360,17 +358,36 @@ const SelectLocation = () => {
             >
               &times;
             </button>
-            <h3 style={{ color: "#4B830D" }}>✅ Message Sent</h3>
+            {/* <h3 style={{ color: "#4B830D" }}>✅ Message Sent</h3> */}
             <p style={{ marginTop: "15px", fontSize: "1.1rem" }}>
-  {selectedBusiness?.desc}<br />
-  Details have been sent to your registered email 📩
-</p>
+              Email id: {selectedBusiness?.desc}
+              <br />
+              {/* Details have been sent to your registered email 📩 */}
+            </p>
+            <p style={{ marginTop: "15px", fontSize: "1.1rem" }}>
+              Phone no: {selectedBusiness?.phone}
+              <br />
+              {/* Details have been sent to your registered email 📩 */}
+            </p>
+            <p style={{ marginTop: "15px", fontSize: "1.1rem" }}>
+              Commercial Rate: {selectedBusiness?.rate}
+              <br />
+              {/* Details have been sent to your registered email 📩 */}
+            </p>
+            <p style={{ marginTop: "15px", fontSize: "1.1rem" }}>
+              Manufacturing Video: {selectedBusiness?.video}
+              <br />
+              {/* Details have been sent to your registered email 📩 */}
+            </p>
 
             <button
               style={{ ...styles.connectBtn, marginTop: "20px" }}
-              onClick={() => setShowConfirmPopup(false)}
+              onClick={() => {
+                setShowConfirmPopup(false); // Your existing function
+                alert("Your Request has been received, team will contact you."); // Show an alert message
+              }}
             >
-              Close
+              Connect and Proceed to Purchase
             </button>
           </div>
         </div>
