@@ -219,7 +219,7 @@ const Home = () => {
           }}
         >
           <source
-            src="https://firebasestorage.googleapis.com/v0/b/gosharpenertestapp.appspot.com/o/video2.mp4?alt=media&token=26ea520f-c277-47fb-9fd6-9fe5edd38e2d"
+            src="https://firebasestorage.googleapis.com/v0/b/gosharpenertestapp.appspot.com/o/homevideo3.mp4?alt=media&token=1c934394-a5e5-43f9-a1a4-0fe2c76bff60"
             type="video/mp4"
           />
           Your browser does not support the video tag.
